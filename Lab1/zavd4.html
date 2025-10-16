@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Розрахунок чеку — Лабораторна 1</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f7f9fc;
+        color: #222;
+      }
+      .form {
+        max-width: 520px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 16px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+      }
+      input,
+      select,
+      button,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin: 6px 0;
+        box-sizing: border-box;
+      }
+      .result {
+        margin-top: 12px;
+        padding: 8px;
+        background: #efe;
+        border-radius: 4px;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Форма розрахунку товарного чеку</h2>
+    <div class="form">
+      <input id="name" placeholder="Назва товару" value="Ноутбук" />
+      <div class="row">
+        <input
+          id="price"
+          type="number"
+          step="0.01"
+          placeholder="Ціна базова"
+          value="20000"
+        />
+        <input
+          id="qty"
+          type="number"
+          step="1"
+          placeholder="Кількість"
+          value="2"
+        />
+      </div>
+      <div class="row">
+        <input
+          id="markup"
+          type="number"
+          step="0.01"
+          placeholder="Націнка (в дробах, наприклад 0.2 для 20%)"
+          value="0.2"
+        />
+        <input
+          id="vat"
+          type="number"
+          step="0.01"
+          placeholder="ПДВ (в дробах, наприклад 0.2)"
+          value="0.2"
+        />
+      </div>
+      <div style="display: flex; gap: 8px">
+        <button id="calc">Розрахувати чек</button>
+        <button id="clear">Очистити</button>
+      </div>
+      <div class="result" id="result">Тут буде чек</div>
+    </div>
+
+    <script src="zavd4-form.js"></script>
+  </body>
+</html>

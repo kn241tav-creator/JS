@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Калькулятор — Лабораторна 1</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f7f9fc;
+        color: #222;
+      }
+      .calc {
+        max-width: 360px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 16px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 8px;
+        margin: 6px 0;
+        box-sizing: border-box;
+      }
+      .result {
+        margin-top: 12px;
+        padding: 8px;
+        background: #eef;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Калькулятор</h2>
+    <div class="calc">
+      <input id="num1" type="number" placeholder="Число 1" value="10" />
+      <input id="num2" type="number" placeholder="Число 2" value="5" />
+      <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">% (mod)</option>
+        <option value="**">** (power)</option>
+      </select>
+      <div style="display: flex; gap: 8px">
+        <button id="calc">Обчислити</button>
+        <button id="clear">Очистити</button>
+      </div>
+      <div class="result" id="result">Результат тут</div>
+    </div>
+
+    <script src="calculator.js"></script>
+  </body>
+</html>
