@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Завдання 8 - Чек магазину (на відмінну оцінку)</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px;
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 28px;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #7f8c8d;
+        margin-bottom: 30px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .receipt-section {
+        background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        color: white;
+      }
+
+      .receipt-header {
+        text-align: center;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+      }
+
+      .receipt-header h2 {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      .receipt-header p {
+        font-size: 12px;
+        opacity: 0.8;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+      }
+
+      table thead {
+        background-color: #3498db;
+        color: white;
+      }
+
+      table th {
+        padding: 12px;
+        text-align: left;
+        font-weight: 600;
+        border: 1px solid #5dade2;
+        font-size: 13px;
+      }
+
+      table td {
+        padding: 12px;
+        border: 1px solid #2980b9;
+        font-size: 14px;
+        color: #ecf0f1;
+      }
+
+      table tbody tr:nth-child(even) {
+        background-color: rgba(52, 152, 219, 0.2);
+      }
+
+      table tbody tr:nth-child(odd) {
+        background-color: rgba(52, 152, 219, 0.1);
+      }
+
+      table tbody tr:hover {
+        background-color: rgba(52, 152, 219, 0.3);
+      }
+
+      .text-right {
+        text-align: right;
+      }
+
+      .receipt-separator {
+        border-top: 2px dashed #3498db;
+        margin: 15px 0;
+      }
+
+      .info-box {
+        background-color: rgba(52, 152, 219, 0.15);
+        border-left: 4px solid #3498db;
+        padding: 15px;
+        border-radius: 4px;
+        margin-bottom: 15px;
+      }
+
+      .info-label {
+        font-size: 12px;
+        opacity: 0.7;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 5px;
+      }
+
+      .info-value {
+        font-size: 18px;
+        font-weight: 700;
+        color: #f39c12;
+      }
+
+      .receipt-footer {
+        text-align: center;
+        font-size: 12px;
+        opacity: 0.6;
+        margin-top: 15px;
+        border-top: 1px solid #3498db;
+        padding-top: 10px;
+      }
+
+      .controls-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      @media (max-width: 600px) {
+        .controls-section {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .control-box {
+        background-color: #ecf0f1;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .control-label {
+        font-size: 12px;
+        color: #7f8c8d;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .control-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #e74c3c;
+        margin-bottom: 10px;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-primary {
+        background-color: #e74c3c;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #c0392b;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+      }
+
+      .btn-secondary {
+        background-color: #3498db;
+        color: white;
+      }
+
+      .btn-secondary:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      @media (max-width: 600px) {
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .stat-card {
+        background: white;
+        border: 2px solid #ecf0f1;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover {
+        border-color: #3498db;
+        box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+      }
+
+      .stat-card h3 {
+        font-size: 12px;
+        color: #7f8c8d;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .stat-card .value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #e74c3c;
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 40px 20px;
+        color: #95a5a6;
+      }
+
+      .empty-state-icon {
+        font-size: 48px;
+        margin-bottom: 15px;
+      }
+
+      .amount-highlight {
+        background-color: #f39c12;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>💳 Чек Магазину</h1>
+      <div class="subtitle">
+        Завдання 8 - Розрахунки на чеку (на відмінну оцінку ⭐)
+      </div>
+
+      <div class="controls-section">
+        <div class="control-box">
+          <div class="control-label">Загальна сума</div>
+          <div class="control-value" id="totalSum">0 грн</div>
+          <button class="btn-primary" onclick="calculateTotalSum()">
+            Порахувати суму
+          </button>
+        </div>
+        <div class="control-box">
+          <div class="control-label">Найдорожча покупка</div>
+          <div class="control-value" id="expensiveItem">—</div>
+          <button class="btn-secondary" onclick="getExpensivePurchase()">
+            Знайти дорогу
+          </button>
+        </div>
+      </div>
+
+      <div class="receipt-section" id="receiptContainer">
+        <div class="empty-state">
+          <div class="empty-state-icon">🧾</div>
+          <p>Натисніть кнопку нижче, щоб вивести чек</p>
+        </div>
+      </div>
+
+      <button
+        class="btn-primary"
+        onclick="displayReceipt()"
+        style="margin-bottom: 20px"
+      >
+        📄 Вивести чек
+      </button>
+      <button class="btn-secondary" onclick="calculateAveragePrice()">
+        📊 Середня вартість товару
+      </button>
+
+      <div class="stats-grid" id="statsContainer"></div>
+    </div>
+
+    <script src="zavd8.js"></script>
+  </body>
+</html>

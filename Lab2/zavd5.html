@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Завдання 5 - Скорочення рядка</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+        border-bottom: 2px solid #9c27b0;
+        padding-bottom: 10px;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+        font-weight: bold;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+        min-height: 60px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #9c27b0;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background-color: #7b1fa2;
+      }
+
+      .result {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+      }
+
+      .result-item {
+        padding: 12px;
+        margin: 12px 0;
+        border-left: 4px solid #9c27b0;
+        background-color: #f3e5f5;
+        border-radius: 4px;
+      }
+
+      .original-text {
+        color: #333;
+        margin-bottom: 8px;
+      }
+
+      .shortened-text {
+        color: #6a1b9a;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 8px;
+        padding: 8px;
+        background-color: #ede7f6;
+        border-radius: 3px;
+      }
+
+      .info-text {
+        font-size: 12px;
+        color: #666;
+        margin-top: 8px;
+      }
+
+      .comparison {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 12px;
+        font-size: 12px;
+      }
+
+      .comparison-item {
+        text-align: center;
+      }
+
+      .comparison-value {
+        font-weight: bold;
+        color: #9c27b0;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Завдання 5: Скорочення рядка</h1>
+
+      <div class="input-group">
+        <label for="textToShorten">Введіть текст:</label>
+        <textarea
+          id="textToShorten"
+          placeholder="Наприклад: Hello, world!"
+        ></textarea>
+      </div>
+
+      <div class="input-group">
+        <label for="maxLength">Максимальна довжина:</label>
+        <input
+          type="number"
+          id="maxLength"
+          placeholder="Наприклад: 5"
+          min="1"
+          value="10"
+        />
+      </div>
+
+      <button onclick="shortenString()">Скоротити рядок</button>
+
+      <div id="resultContainer"></div>
+    </div>
+
+    <script src="zavd5.js"></script>
+  </body>
+</html>

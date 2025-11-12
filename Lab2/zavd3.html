@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Завдання 3 - Підрахунок голосних</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+        border-bottom: 2px solid #2196f3;
+        padding-bottom: 10px;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+        font-weight: bold;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #2196f3;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background-color: #0b7dda;
+      }
+
+      .result {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+      }
+
+      .vowel-count {
+        font-size: 24px;
+        font-weight: bold;
+        color: #2196f3;
+        text-align: center;
+        padding: 20px;
+        background-color: #e3f2fd;
+        border-radius: 8px;
+        margin: 15px 0;
+        box-shadow: 0 2px 4px rgba(33, 150, 243, 0.2);
+      }
+
+      .vowels-list {
+        margin-top: 15px;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+      }
+
+      .vowels-list strong {
+        color: #1565c0;
+      }
+
+      .result-text {
+        color: #333;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #fff;
+        border-left: 4px solid #2196f3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Завдання 3: Підрахунок голосних літер</h1>
+
+      <div class="input-group">
+        <label for="inputText">Введіть текст:</label>
+        <textarea
+          id="inputText"
+          placeholder="Наприклад: Hello World"
+        ></textarea>
+      </div>
+
+      <button onclick="countVowels()">Підрахувати голосні</button>
+
+      <div id="resultContainer"></div>
+    </div>
+
+    <script src="zavd3.js"></script>
+  </body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Завдання 6* - Пошук символу</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 700px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+        border-bottom: 2px solid #ff6f00;
+        padding-bottom: 10px;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+        font-weight: bold;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      .inputs-row {
+        display: flex;
+        gap: 10px;
+      }
+
+      .inputs-row .input-group {
+        flex: 1;
+        margin-bottom: 0;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #ff6f00;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background-color: #e65100;
+      }
+
+      .result {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+      }
+
+      .result-item {
+        padding: 12px;
+        margin: 12px 0;
+        border-left: 4px solid #ff6f00;
+        background-color: #fff3e0;
+        border-radius: 4px;
+      }
+
+      .input-text {
+        color: #333;
+        margin-bottom: 8px;
+        word-break: break-all;
+      }
+
+      .search-char {
+        color: #333;
+        margin-bottom: 8px;
+      }
+
+      .char-highlight {
+        background-color: #ff6f00;
+        color: white;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-weight: bold;
+      }
+
+      .count-display {
+        font-size: 20px;
+        font-weight: bold;
+        color: #ff6f00;
+        text-align: center;
+        padding: 15px;
+        background-color: #fff3e0;
+        border-radius: 4px;
+        margin: 12px 0;
+      }
+
+      .indices-display {
+        padding: 12px;
+        background-color: #fbe9e7;
+        border-left: 4px solid #ff6f00;
+        border-radius: 4px;
+        margin: 12px 0;
+      }
+
+      .indices-label {
+        font-weight: bold;
+        color: #d84315;
+        margin-bottom: 8px;
+      }
+
+      .indices-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .index-badge {
+        background-color: #ff6f00;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .no-results {
+        color: #666;
+        padding: 15px;
+        text-align: center;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        font-style: italic;
+      }
+
+      .highlighted-string {
+        margin: 12px 0;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+        word-break: break-all;
+        line-height: 1.8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Завдання 6*: Пошук символу в рядку</h1>
+      <div class="subtitle">
+        ⭐ Розширене завдання - знайти всі індекси та кількість входжень символу
+      </div>
+
+      <div class="input-group">
+        <label for="searchString">Введіть рядок:</label>
+        <input
+          type="text"
+          id="searchString"
+          placeholder="Наприклад: Hello World"
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="searchChar">Символ для пошуку:</label>
+        <input
+          type="text"
+          id="searchChar"
+          placeholder="Введіть один символ"
+          maxlength="1"
+        />
+      </div>
+
+      <button onclick="findCharacter()">Знайти символ</button>
+
+      <div id="resultContainer"></div>
+    </div>
+
+    <script src="zavd6.js"></script>
+  </body>
+</html>
